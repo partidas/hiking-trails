@@ -1,8 +1,10 @@
-const myHeading = document.querySelector('h1');
+/*const myHeading = document.querySelector('h1');
 if(myHeading.textContent === "NATURE, Dont you love it? ") {
     alert('Switching Heading!');
     myHeading.textContent = 'Hello world!';
-}
+} */
+
+// Image switcher code
 
 let myImage = document.querySelector('img');
 
@@ -15,10 +17,39 @@ myImage.onclick = function() {
     }
 }
 
+// Personalized welcome message code
+
+let myButton = document.querySelector('button');
+let myHeading = document.querySelector('h1');
+
+function setUserName() {
+    let myName = prompt('Please enter your name.');
+    if(!myName) {
+        setUserName();
+    } else {
+        localStorage.setItem('name', myName);
+        myHeading.textContent = 'Nature is cool, ' + myName;
+    }
+}
+
+if(!localStorage.getItem('name')) {
+    setUserName();
+} else {
+    let storedName = localStorage.getItem('name');
+    myHeading.textContent = 'Nature is cool, ' + storedName;
+}
+
+myButton.onclick = function() {
+    setUserName();
+}
+
+// Practice code for alerts on clicking the webpage
 /*
 document.querySelector('html').onclick = function() {
     alert('Ouch! Stop poking me!');
 }
+ 
+// Alert testing creating functions
 
 /*
 function multiply(num1,num2) {
